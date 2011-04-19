@@ -1,0 +1,144 @@
+plugin.tx_jfimageflow_pi1 {
+
+	# cat=plugin.tx_jfimageflow/enable/010; type=options[_self,_new,_top,_parent]; label=Internal linktarget:The target where internal links will be opend
+	linkTarget = _self
+
+	# cat=plugin.tx_jfimageflow/enable/020; type=options[_self,_new,_top,_parent]; label=External linktarget:The target where external links will be opend
+	extlinkTarget = _new
+
+	# cat=plugin.tx_jfimageflow/enable/040; type=boolean; label=Javascript in Footer: If set, the Javascript will be rendered in Footer
+	jsInFooter = 0
+
+	# cat=plugin.tx_jfimageflow/enable/050; type=boolean; label=Minify Javascript: If set, the Javascript will be minified
+	jsMinify = 0
+
+	# cat=plugin.tx_jfimageflow/enable/060; type=boolean; label=Javascript to Inline: If set, the Javascript will be inserted into the inlineJS, after this, its possible to put it into externel files (config.removeDefaultJS = external)
+	jsInline = 0
+
+	# cat=plugin.tx_jfimageflow/enable/070; type=boolean; label=Minify CSS: If set, the CSS will be minified
+	cssMinify = 0
+
+
+
+	# cat=plugin.tx_jfimageflow/file/010; type=file[js]; label=ImageFlow JS: Location of the ImageFlow JS
+	file.imageFlowJS = EXT:jfimageflow/res/imageflow-1.3.0.js
+
+	# cat=plugin.tx_jfimageflow/file/020; type=file[css]; label=ImageFlow CSS: Location of the ImageFlow CSS
+	file.imageFlowCSS = EXT:jfimageflow/res/style.css
+
+	# cat=plugin.tx_jfimageflow/file/030; type=string; label=Path to image: Path to the images relative to the reflect_.php script
+	imagePath = ../../../../
+
+	# cat=plugin.tx_jfimageflow/file/040; type=string; label=Path to the reflect_.php: Path to the reflect_.php script
+	reflectPath = typo3conf/ext/jfimageflow/res/
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/010; type=int; label=Animation speed: Animation speed in ms
+	animationSpeed = 50
+
+	# cat=plugin.tx_jfimageflow/typo/020; type=string; label=Aspect ratio: Aspect ratio of the ImageFlow container (width divided by height)
+	aspectRatio = 1.964
+
+	# cat=plugin.tx_jfimageflow/typo/030; type=boolean; label=Navigation button: Toggle navigation buttons
+	buttons = 0
+
+	# cat=plugin.tx_jfimageflow/typo/040; type=boolean; label=Captions: Toggle captions
+	captions = 0
+
+	# cat=plugin.tx_jfimageflow/typo/050; type=boolean; label=Circular rotation: Toggle circular rotation
+	circular = 0
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/060; type=string; label=Cursor type: Cursor type for all images
+	imageCursor = default
+
+	# cat=plugin.tx_jfimageflow/typo/070; type=string; label=Default id: Default id of the ImageFlow container
+	ImageFlowID = imageflow
+
+	# cat=plugin.tx_jfimageflow/typo/080; type=string; label=Multiplicator focus: Multiplicator for the focussed image size (ratio)
+	imageFocusM = 1.0
+
+	# cat=plugin.tx_jfimageflow/typo/090; type=string; label=Max number on side: Max number of images on each side of the focussed one
+	imageFocusMax = 4
+
+	# cat=plugin.tx_jfimageflow/typo/110; type=boolean; label=Image scaling: Toggle image scaling
+	imageScaling = 1
+
+	# cat=plugin.tx_jfimageflow/typo/120; type=string; label=Height of container: Height of the images div container (ratio)
+	imagesHeight = 0.67
+
+	# cat=plugin.tx_jfimageflow/typo/130; type=string; label=Multiplicator image: Multiplicator for all images (ratio)
+	imagesM = 1.0
+
+	# cat=plugin.tx_jfimageflow/typo/140; type=boolean; label=Image opacity: Toggle image opacity
+	opacity = 0
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/150; type=int; label=Scale landscape: Scale landscape format in percent
+	percentLandscape = 118
+
+	# cat=plugin.tx_jfimageflow/typo/160; type=int; label=Scale portrait: Scale portrait and square format in percent
+	percentOther = 100
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/170; type=boolean; label=Preloading image: Toggle loading bar (false: requires img attributes height and width)
+	preloadImages = 1
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/180; type=boolean; label=Reflections: Toggle reflections
+	reflections = 1
+
+	# cat=plugin.tx_jfimageflow/typo/190; type=string; label=GET-Vars for reflect_.php: Pass variables via the GET method to the reflect_.php script
+	reflectionGET = 
+
+	# cat=plugin.tx_jfimageflow/typo/200; type=string; label=Reflection height: Height of the reflection of the source image (ratio)
+	reflectionP = 0.5
+
+	# cat=plugin.tx_jfimageflow/typo/210; type=boolean; label=Use transparent reflections: Toggle reflect2.php or reflect3.php
+	reflectionPNG = 0
+
+	# cat=plugin.tx_jfimageflow/typo/220; type=color; label=Background color: Backgroundcolor to use for reflection
+	backgroundColor = ffffff
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/230; type=string; label=Scrollbar: Width of the scrollbar (ratio)
+	scrollbarP = 0.6
+
+	# cat=plugin.tx_jfimageflow/typo/240; type=boolean; label=Slider: Toggle slider
+	slider = 1
+
+	# cat=plugin.tx_jfimageflow/typo/250; type=string; label=Cursor of slider: Slider cursor type
+	sliderCursor = e-resize
+
+	# cat=plugin.tx_jfimageflow/typo/260; type=int; label=Width of slider: Width of the slider in px
+	sliderWidth = 14
+
+	# cat=plugin.tx_jfimageflow/typo/270; type=boolean; label=Slideshow: Toggle slideshow
+	slideshow = 0
+
+	# cat=plugin.tx_jfimageflow/typo/280; type=int; label=Time between slides: Time between slides in ms
+	slideshowSpeed = 1500
+
+	# cat=plugin.tx_jfimageflow/typo/290; type=boolean; label=Automatic slideshow: Toggle automatic slideshow play on startup
+	slideshowAutoplay = 0
+
+
+
+	# cat=plugin.tx_jfimageflow/typo/300; type=int; label=Start ID: Image ID to begin with
+	startID = 1
+
+	# cat=plugin.tx_jfimageflow/typo/310; type=boolean; label=Glide to start ID: Toggle glide animation to start ID
+	glideToStartID = 1
+
+	# cat=plugin.tx_jfimageflow/typo/320; type=boolean; label=Animate from right: Animate images moving in from the right on startup
+	startAnimation = false
+
+	# cat=plugin.tx_jfimageflow/typo/330; type=int; label=Step in x-axis: Step width on the x-axis in px
+	xStep = 150
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'jfimageflow'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">ImageFlow</label>
+			<label index="tt_content.pi_flexform.sheet_general">General</label>
+			<label index="tt_content.pi_flexform.mode">Image carousel mode</label>
+			<label index="tt_content.pi_flexform.mode.I.upload">Upload Images</label>
+			<label index="tt_content.pi_flexform.mode.I.folder">Folder</label>
+			<label index="tt_content.pi_flexform.mode.I.dam">DAM (dam)</label>
+			<label index="tt_content.pi_flexform.mode.I.dam_catedit">DAM category (dam_catedit)</label>
+			<label index="tt_content.pi_flexform.damimages">Images in DAM (dam)</label>
+			<label index="tt_content.pi_flexform.damcategories">Images from DAM category (dam_catedit)</label>
+			<label index="tt_content.pi_flexform.folder">Image folder</label>
+			<label index="tt_content.pi_flexform.images">Images</label>
+			<label index="tt_content.pi_flexform.hrefs">Image links</label>
+			<label index="tt_content.pi_flexform.captions">Image Captions</label>
+
+			<label index="tt_content.pi_flexform.sheet_control">Control / Style</label>
+			<label index="tt_content.pi_flexform.imagewidth">Image width</label>
+			<label index="tt_content.pi_flexform.imageheight">Image height</label>
+			<label index="tt_content.pi_flexform.carouselwidth">Carousel width</label>
+			<label index="tt_content.pi_flexform.carouselheight">Carousel height</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tt_content.list_type_pi1">ImageFlow</label>
+			<label index="tt_content.pi_flexform.sheet_general">General</label>
+			<label index="tt_content.pi_flexform.mode">Image carousel mode</label>
+			<label index="tt_content.pi_flexform.mode.I.upload">Upload Images</label>
+			<label index="tt_content.pi_flexform.mode.I.folder">Folder</label>
+			<label index="tt_content.pi_flexform.mode.I.dam">DAM (dam)</label>
+			<label index="tt_content.pi_flexform.mode.I.dam_catedit">DAM category (dam_catedit)</label>
+			<label index="tt_content.pi_flexform.damimages">Images in DAM (dam)</label>
+			<label index="tt_content.pi_flexform.damcategories">Images from DAM category (dam_catedit)</label>
+			<label index="tt_content.pi_flexform.folder">Image folder</label>
+			<label index="tt_content.pi_flexform.images">Images</label>
+			<label index="tt_content.pi_flexform.hrefs">Image links</label>
+			<label index="tt_content.pi_flexform.captions">Image Captions</label>
+
+			<label index="tt_content.pi_flexform.sheet_control">Control / Style</label>
+			<label index="tt_content.pi_flexform.imagewidth">Image width</label>
+			<label index="tt_content.pi_flexform.imageheight">Image height</label>
+			<label index="tt_content.pi_flexform.carouselwidth">Carousel width</label>
+			<label index="tt_content.pi_flexform.carouselheight">Carousel height</label>
+		</languageKey>
+	</data>
+</T3locallang>

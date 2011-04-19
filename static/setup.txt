@@ -1,0 +1,86 @@
+plugin.tx_jfimageflow_pi1 {
+
+	linkTarget = {$plugin.tx_jfimageflow_pi1.linkTarget}
+	extlinkTarget = {$plugin.tx_jfimageflow_pi1.extlinkTarget}
+	jsInFooter = {$plugin.tx_jfimageflow_pi1.jsInFooter}
+	jsMinify = {$plugin.tx_jfimageflow_pi1.jsMinify}
+	jsInline = {$plugin.tx_jfimageflow_pi1.jsInline}
+	cssMinify = {$plugin.tx_jfimageflow_pi1.cssMinify}
+
+	imageFlowJS = {$plugin.tx_jfimageflow_pi1.file.imageFlowJS}
+	imageFlowCSS = {$plugin.tx_jfimageflow_pi1.file.imageFlowCSS}
+	imagePath = {$plugin.tx_jfimageflow_pi1.imagePath}
+	reflectPath = {$plugin.tx_jfimageflow_pi1.reflectPath}
+
+	animationSpeed = {$plugin.tx_jfimageflow_pi1.animationSpeed}
+	aspectRatio = {$plugin.tx_jfimageflow_pi1.aspectRatio}
+	buttons = {$plugin.tx_jfimageflow_pi1.buttons}
+	captions = {$plugin.tx_jfimageflow_pi1.captions}
+	circular = {$plugin.tx_jfimageflow_pi1.circular}
+
+	imageCursor = {$plugin.tx_jfimageflow_pi1.imageCursor}
+	ImageFlowID = {$plugin.tx_jfimageflow_pi1.ImageFlowID}
+	imageFocusM = {$plugin.tx_jfimageflow_pi1.imageFocusM}
+	imageFocusMax = {$plugin.tx_jfimageflow_pi1.imageFocusMax}
+	imageScaling = {$plugin.tx_jfimageflow_pi1.imageScaling}
+	imagesHeight = {$plugin.tx_jfimageflow_pi1.imagesHeight}
+	imagesM = {$plugin.tx_jfimageflow_pi1.imagesM}
+	opacity = {$plugin.tx_jfimageflow_pi1.opacity}
+
+	percentLandscape = {$plugin.tx_jfimageflow_pi1.percentLandscape}
+	percentOther = {$plugin.tx_jfimageflow_pi1.percentOther}
+
+	preloadImages = {$plugin.tx_jfimageflow_pi1.preloadImages}
+
+	reflections = {$plugin.tx_jfimageflow_pi1.reflections}
+	reflectionGET = {$plugin.tx_jfimageflow_pi1.reflectionGET}
+	reflectionP = {$plugin.tx_jfimageflow_pi1.reflectionP}
+	reflectionPNG = {$plugin.tx_jfimageflow_pi1.reflectionPNG}
+	backgroundColor = {$plugin.tx_jfimageflow_pi1.backgroundColor}
+
+	scrollbarP = {$plugin.tx_jfimageflow_pi1.scrollbarP}
+	slider = {$plugin.tx_jfimageflow_pi1.slider}
+	sliderCursor = {$plugin.tx_jfimageflow_pi1.sliderCursor}
+	sliderWidth = {$plugin.tx_jfimageflow_pi1.sliderWidth}
+	slideshow = {$plugin.tx_jfimageflow_pi1.slideshow}
+	slideshowSpeed = {$plugin.tx_jfimageflow_pi1.slideshowSpeed}
+	slideshowAutoplay = {$plugin.tx_jfimageflow_pi1.slideshowAutoplay}
+
+	startID = {$plugin.tx_jfimageflow_pi1.startID}
+	glideToStartID = {$plugin.tx_jfimageflow_pi1.glideToStartID}
+	startAnimation = {$plugin.tx_jfimageflow_pi1.startAnimation}
+	xStep = {$plugin.tx_jfimageflow_pi1.xStep}
+
+	imageflow {
+		normal {
+			image {
+				file {
+					import.data = register:file
+					width.data = register:imagewidth
+					height.data = register:imageheight
+				}
+				imageLinkWrap < tt_content.image.20.1.imageLinkWrap
+				imageHrefWrap {
+					enable.data = register:href
+					typolink {
+						parameter.data = register:href
+						title.data = register:caption
+						target = {$plugin.tx_jfimageflow_pi1.linkTarget}
+						extTarget = {$plugin.tx_jfimageflow_pi1.extlinkTarget}
+					}
+				}
+				altText {
+					data = register:caption
+					stripHtml = 1
+				}
+				titleText < .altText
+				longdescURL < .altText
+			}
+			stdWrap {
+				dataWrap = <div id="{register:key}" class="imageflow"> | </div>
+				required = 1
+			}
+		}
+	}
+
+}
