@@ -74,17 +74,57 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 		$pageID = false;
 		if ($this->cObj->data['list_type'] == $this->extKey.'_pi1') {
 			$this->type = 'normal';
+
 			// It's a content, al data from flexform
-			// Set the Flexform information
-			$this->pi_initPIflexForm();
-			$piFlexForm = $this->cObj->data['pi_flexform'];
-			foreach ($piFlexForm['data'] as $sheet => $data) {
-				foreach ($data as $lang => $value) {
-					foreach ($value as $key => $val) {
-						$this->lConf[$key] = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
-					}
-				}
-			}
+
+			$this->lConf['mode']              = $this->getFlexformData('general', 'mode');
+			$this->lConf['images']            = $this->getFlexformData('general', 'images');
+			$this->lConf['hrefs']             = $this->getFlexformData('general', 'hrefs');
+			$this->lConf['captions']          = $this->getFlexformData('general', 'captions');
+			$this->lConf['descriptions']      = $this->getFlexformData('general', 'descriptions');
+			$this->lConf['damimages']         = $this->getFlexformData('general', 'damimages');
+
+			$this->lConf['imagewidth']        = $this->getFlexformData('image', 'imagewidth');
+			$this->lConf['imageheight']       = $this->getFlexformData('image', 'imageheight');
+			$this->lConf['imageFocusMax']     = $this->getFlexformData('image', 'imageFocusMax');
+			$this->lConf['percentLandscape']  = $this->getFlexformData('image', 'percentLandscape');
+			$this->lConf['percentOther']      = $this->getFlexformData('image', 'percentOther');
+			$this->lConf['imageCursor']       = $this->getFlexformData('image', 'imageCursor');
+			$this->lConf['imageScaling']      = $this->getFlexformData('image', 'imageScaling');
+			$this->lConf['opacity']           = $this->getFlexformData('image', 'opacity');
+			$this->lConf['preloadImages']     = $this->getFlexformData('image', 'preloadImages');
+			$this->lConf['imageFocusM']       = $this->getFlexformData('image', 'imageFocusM');
+			$this->lConf['imagesHeight']      = $this->getFlexformData('image', 'imagesHeight');
+			$this->lConf['imagesM']           = $this->getFlexformData('image', 'imagesM');
+
+			$this->lConf['animationSpeed']    = $this->getFlexformData('movement', 'animationSpeed');
+			$this->lConf['slideshowSpeed']    = $this->getFlexformData('movement', 'slideshowSpeed');
+			$this->lConf['captionsToggle']    = $this->getFlexformData('movement', 'captionsToggle');
+			$this->lConf['circular']          = $this->getFlexformData('movement', 'circular');
+			$this->lConf['slideshowAutoplay'] = $this->getFlexformData('movement', 'slideshowAutoplay');
+			$this->lConf['aspectRatio']       = $this->getFlexformData('movement', 'aspectRatio');
+
+			$this->lConf['sliderWidth']       = $this->getFlexformData('control', 'sliderWidth');
+			$this->lConf['sliderCursor']      = $this->getFlexformData('control', 'sliderCursor');
+			$this->lConf['buttons']           = $this->getFlexformData('control', 'buttons');
+			$this->lConf['slider']            = $this->getFlexformData('control', 'slider');
+			$this->lConf['slideshow']         = $this->getFlexformData('control', 'slideshow');
+			$this->lConf['scrollbarP']        = $this->getFlexformData('control', 'scrollbarP');
+
+			$this->lConf['reflectionGET']     = $this->getFlexformData('reflection', 'reflectionGET');
+			$this->lConf['backgroundColor']   = $this->getFlexformData('reflection', 'backgroundColor');
+			$this->lConf['reflections']       = $this->getFlexformData('reflection', 'reflections');
+			$this->lConf['reflectionPNG']     = $this->getFlexformData('reflection', 'reflectionPNG');
+			$this->lConf['reflectionP']       = $this->getFlexformData('reflection', 'reflectionP');
+
+			$this->lConf['xStep']             = $this->getFlexformData('other', 'xStep');
+			$this->lConf['startID']           = $this->getFlexformData('other', 'startID');
+			$this->lConf['glideToStartID']    = $this->getFlexformData('other', 'glideToStartID');
+			$this->lConf['startAnimation']    = $this->getFlexformData('other', 'startAnimation');
+
+			$this->lConf['options']           = $this->getFlexformData('special', 'options');
+			$this->lConf['optionsOverride']   = $this->getFlexformData('special', 'optionsOverride');
+
 			// define the key of the element
 			$this->setContentKey($this->extKey . "_c" . $this->cObj->data['uid']);
 
@@ -94,6 +134,10 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 				case "folder" : {}
 				case "upload" : {
 					$this->setDataUpload();
+					// Set the descriptions
+					if ($this->lConf['descriptions']) {
+						$this->description = t3lib_div::trimExplode(",", $this->lConf['descriptions']);
+					}
 					break;
 				}
 				case "dam" : {
@@ -106,47 +150,36 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 				}
 			}
 
-			// overwrite the config
+			// image
 			if ($this->lConf['imagewidth']) {
 				$this->conf['imagewidth'] = $this->lConf['imagewidth'];
 			}
 			if ($this->lConf['imageheight']) {
 				$this->conf['imageheight'] = $this->lConf['imageheight'];
 			}
-			if ($this->lConf['animationSpeed']) {
-				$this->conf['animationSpeed'] = $this->lConf['animationSpeed'];
-			}
-
-			if ($this->lConf['animationSpeed']) {
-				$this->conf['animationSpeed'] = $this->lConf['animationSpeed'];
-			}
-			if ($this->lConf['aspectRatio']) {
-				$this->conf['aspectRatio'] = $this->lConf['aspectRatio'];
-			}
-			if ($this->lConf['buttons'] < 2) {
-				$this->conf['buttons'] = $this->lConf['buttons'];
-			}
-			if ($this->lConf['captions'] < 2) {
-				$this->conf['captions'] = $this->lConf['captions'];
-			}
-			if ($this->lConf['circular'] < 2) {
-				$this->conf['circular'] = $this->lConf['circular'];
-			}
-
-			if ($this->lConf['imageCursor']) {
-				$this->conf['imageCursor'] = $this->lConf['imageCursor'];
-			}
-			if ($this->lConf['ImageFlowID']) {
-				$this->conf['ImageFlowID'] = $this->lConf['ImageFlowID'];
-			}
-			if ($this->lConf['imageFocusM']) {
-				$this->conf['imageFocusM'] = $this->lConf['imageFocusM'];
-			}
 			if ($this->lConf['imageFocusMax']) {
 				$this->conf['imageFocusMax'] = $this->lConf['imageFocusMax'];
 			}
+			if ($this->lConf['percentLandscape']) {
+				$this->conf['percentLandscape'] = $this->lConf['percentLandscape'];
+			}
+			if ($this->lConf['percentOther']) {
+				$this->conf['percentOther'] = $this->lConf['percentOther'];
+			}
+			if ($this->lConf['imageCursor']) {
+				$this->conf['imageCursor'] = $this->lConf['imageCursor'];
+			}
 			if ($this->lConf['imageScaling'] < 2) {
 				$this->conf['imageScaling'] = $this->lConf['imageScaling'];
+			}
+			if ($this->lConf['opacity'] < 2) {
+				$this->conf['opacity'] = $this->lConf['opacity'];
+			}
+			if ($this->lConf['preloadImages'] < 2) {
+				$this->conf['preloadImages'] = $this->lConf['preloadImages'];
+			}
+			if ($this->lConf['imageFocusM']) {
+				$this->conf['imageFocusM'] = $this->lConf['imageFocusM'];
 			}
 			if ($this->lConf['imagesHeight']) {
 				$this->conf['imagesHeight'] = $this->lConf['imagesHeight'];
@@ -154,59 +187,65 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			if ($this->lConf['imagesM']) {
 				$this->conf['imagesM'] = $this->lConf['imagesM'];
 			}
-			if ($this->lConf['opacity'] < 2) {
-				$this->conf['opacity'] = $this->lConf['opacity'];
-			}
 
-			if ($this->lConf['percentLandscape']) {
-				$this->conf['percentLandscape'] = $this->lConf['percentLandscape'];
-			}
-			if ($this->lConf['percentOther']) {
-				$this->conf['percentOther'] = $this->lConf['percentOther'];
-			}
-
-			if ($this->lConf['preloadImages'] < 2) {
-				$this->conf['preloadImages'] = $this->lConf['preloadImages'];
-			}
-
-			if ($this->lConf['reflections'] < 2) {
-				$this->conf['reflections'] = $this->lConf['reflections'];
-			}
-			if ($this->lConf['reflectionGET']) {
-				$this->conf['reflectionGET'] = $this->lConf['reflectionGET'];
-			}
-			if ($this->lConf['reflectionP']) {
-				$this->conf['reflectionP'] = $this->lConf['reflectionP'];
-			}
-			if ($this->lConf['reflectionPNG'] < 2) {
-				$this->conf['reflectionPNG'] = $this->lConf['reflectionPNG'];
-			}
-			if ($this->lConf['backgroundColor']) {
-				$this->conf['backgroundColor'] = $this->lConf['backgroundColor'];
-			}
-
-			if ($this->lConf['scrollbarP']) {
-				$this->conf['scrollbarP'] = $this->lConf['scrollbarP'];
-			}
-			if ($this->lConf['slider'] < 2) {
-				$this->conf['slider'] = $this->lConf['slider'];
-			}
-			if ($this->lConf['sliderCursor']) {
-				$this->conf['sliderCursor'] = $this->lConf['sliderCursor'];
-			}
-			if ($this->lConf['sliderWidth']) {
-				$this->conf['sliderWidth'] = $this->lConf['sliderWidth'];
-			}
-			if ($this->lConf['slideshow'] < 2) {
-				$this->conf['slideshow'] = $this->lConf['slideshow'];
+			// movement
+			if ($this->lConf['animationSpeed']) {
+				$this->conf['animationSpeed'] = $this->lConf['animationSpeed'];
 			}
 			if ($this->lConf['slideshowSpeed']) {
 				$this->conf['slideshowSpeed'] = $this->lConf['slideshowSpeed'];
 			}
+			if ($this->lConf['captionsToggle'] < 2) {
+				$this->conf['captionsToggle'] = $this->lConf['captionsToggle'];
+			}
+			if ($this->lConf['circular'] < 2) {
+				$this->conf['circular'] = $this->lConf['circular'];
+			}
 			if ($this->lConf['slideshowAutoplay'] < 2) {
 				$this->conf['slideshowAutoplay'] = $this->lConf['slideshowAutoplay'];
 			}
+			if ($this->lConf['aspectRatio']) {
+				$this->conf['aspectRatio'] = $this->lConf['aspectRatio'];
+			}
 
+			// control
+			if ($this->lConf['sliderWidth']) {
+				$this->conf['sliderWidth'] = $this->lConf['sliderWidth'];
+			}
+			if ($this->lConf['sliderCursor']) {
+				$this->conf['sliderCursor'] = $this->lConf['sliderCursor'];
+			}
+			if ($this->lConf['buttons'] < 2) {
+				$this->conf['buttons'] = $this->lConf['buttons'];
+			}
+			if ($this->lConf['slider'] < 2) {
+				$this->conf['slider'] = $this->lConf['slider'];
+			}
+			if ($this->lConf['slideshow'] < 2) {
+				$this->conf['slideshow'] = $this->lConf['slideshow'];
+			}
+			if ($this->lConf['scrollbarP']) {
+				$this->conf['scrollbarP'] = $this->lConf['scrollbarP'];
+			}
+
+			// reflection
+			if ($this->lConf['reflectionGET']) {
+				$this->conf['reflectionGET'] = $this->lConf['reflectionGET'];
+			}
+			if ($this->lConf['backgroundColor']) {
+				$this->conf['backgroundColor'] = $this->lConf['backgroundColor'];
+			}
+			if ($this->lConf['reflections'] < 2) {
+				$this->conf['reflections'] = $this->lConf['reflections'];
+			}
+			if ($this->lConf['reflectionPNG'] < 2) {
+				$this->conf['reflectionPNG'] = $this->lConf['reflectionPNG'];
+			}
+			if ($this->lConf['reflectionP']) {
+				$this->conf['reflectionP'] = $this->lConf['reflectionP'];
+			}
+
+			// other
 			if ($this->lConf['startID']) {
 				$this->conf['startID'] = $this->lConf['startID'];
 			}
@@ -218,6 +257,14 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			}
 			if ($this->lConf['xStep']) {
 				$this->conf['xStep'] = $this->lConf['xStep'];
+			}
+
+			// special
+			if ($this->lConf['options']) {
+				$this->conf['options'] = $this->lConf['options'];
+			}
+			if ($this->lConf['optionsOverride'] < 2) {
+				$this->conf['optionsOverride'] = $this->lConf['optionsOverride'];
 			}
 
 			return $this->parseTemplate();
@@ -248,18 +295,77 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 		// get the options from config
 		$options = array();
 		$options['ImageFlowID'] = "ImageFlowID: '{$this->getContentKey()}'";
-		$options['imagePath'] = "imagePath: '{$this->conf['imagePath']}'";
+		$options['imagePath']   = "imagePath: '{$this->conf['imagePath']}'";
 		$options['reflectPath'] = "reflectPath: '{$this->conf['reflectPath']}'";
+
+		if ($this->conf['imageFocusMax'] > 0) {
+			$options['imageFocusMax'] = "imageFocusMax: {$this->conf['imageFocusMax']}";
+		}
+		if ($this->conf['percentLandscape'] > 0) {
+			$options['percentLandscape'] = "percentLandscape: {$this->conf['percentLandscape']}";
+		}
+		if ($this->conf['percentOther'] > 0) {
+			$options['percentOther'] = "percentOther: {$this->conf['percentOther']}";
+		}
+		if ($this->conf['imageCursor']) {
+			$options['imageCursor'] = "imageCursor: '{$this->conf['imageCursor']}'";
+		}
+		if (strlen($this->conf['imageScaling'])) {
+			$options['imageScaling'] = "imageScaling: ".($this->conf['imageScaling'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['opacity'])) {
+			$options['opacity'] = "opacity: ".($this->conf['opacity'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['preloadImages'])) {
+			$options['preloadImages'] = "preloadImages: ".($this->conf['preloadImages'] ? 'true' : 'false');
+		}
+		if ($this->conf['imageFocusM'] > 0) {
+			$options['imageFocusM'] = "imageFocusM: {$this->conf['imageFocusM']}";
+		}
+		if ($this->conf['imagesHeight'] > 0) {
+			$options['imagesHeight'] = "imagesHeight: {$this->conf['imagesHeight']}";
+		}
+		if ($this->conf['imagesM'] > 0) {
+			$options['imagesM'] = "imagesM: {$this->conf['imagesM']}";
+		}
 
 		if (is_numeric($this->conf['animationSpeed'])) {
 			$options['animationSpeed'] = "animationSpeed: {$this->conf['animationSpeed']}";
 		}
+		if ($this->conf['slideshowSpeed'] > 0) {
+			$options['slideshowSpeed'] = "slideshowSpeed: {$this->conf['slideshowSpeed']}";
+		}
+		if (strlen($this->conf['captionsToggle'])) {
+			$options['captionsToggle'] = "captions: ".($this->conf['captionsToggle'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['circular'])) {
+			$options['circular'] = "circular: ".($this->conf['circular'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['slideshowAutoplay'])) {
+			$options['slideshowAutoplay'] = "slideshowAutoplay: ".($this->conf['slideshowAutoplay'] ? 'true' : 'false');
+		}
 		if ($this->conf['aspectRatio'] > 0) {
 			$options['aspectRatio'] = "aspectRatio: {$this->conf['aspectRatio']}";
 		}
-		$options['buttons']  = "buttons: ".($this->conf['buttons'] ? 'true' : 'false');
-		$options['captions'] = "captions: ".($this->conf['captions'] ? 'true' : 'false');
-		$options['circular'] = "circular: ".($this->conf['circular'] ? 'true' : 'false');
+
+		if ($this->conf['sliderWidth'] > 0) {
+			$options['sliderWidth'] = "sliderWidth: {$this->conf['sliderWidth']}";
+		}
+		if ($this->conf['sliderCursor']) {
+			$options['sliderCursor'] = "sliderCursor: '{$this->conf['sliderCursor']}'";
+		}
+		if (strlen($this->conf['buttons'])) {
+			$options['buttons']  = "buttons: ".($this->conf['buttons'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['slider'])) {
+			$options['slider'] = "slider: ".($this->conf['slider'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['slideshow'])) {
+			$options['slideshow'] = "slideshow: ".($this->conf['slideshow'] ? 'true' : 'false');
+		}
+		if ($this->conf['scrollbarP'] > 0) {
+			$options['scrollbarP'] = "scrollbarP: {$this->conf['scrollbarP']}";
+		}
 
 		if ($this->conf['reflectionGET'] . $this->conf['backgroundColor']) {
 			$get = array();
@@ -271,40 +377,38 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			}
 			$options['reflectionGET'] = "reflectionGET: '&".implode("&", $get)."'";
 		}
-/*
+		if (strlen($this->conf['reflections'])) {
+			$options['reflections'] = "reflections: ".($this->conf['reflections'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['reflectionPNG'])) {
+			$options['reflectionPNG'] = "reflectionPNG: ".($this->conf['reflectionPNG'] ? 'true' : 'false');
+		}
+		if ($this->conf['reflectionP'] > 0) {
+			$options['reflectionP'] = "reflectionP: {$this->conf['reflectionP']}";
+		}
 
-$this->conf['imageCursor']
-$this->conf['ImageFlowID']
-$this->conf['imageFocusM']
-$this->conf['imageFocusMax']
-$this->conf['imageScaling']
-$this->conf['imagesHeight']
-$this->conf['imagesM']
-$this->conf['opacity']
+		if ($this->conf['xStep'] > 0) {
+			$options['xStep'] = "xStep: {$this->conf['xStep']}";
+		}
+		if ($this->conf['startID'] > 0) {
+			$options['startID'] = "startID: {$this->conf['startID']}";
+		}
+		if (strlen($this->conf['glideToStartID'])) {
+			$options['glideToStartID'] = "glideToStartID: ".($this->conf['glideToStartID'] ? 'true' : 'false');
+		}
+		if (strlen($this->conf['startAnimation'])) {
+			$options['startAnimation'] = "startAnimation: ".($this->conf['startAnimation'] ? 'true' : 'false');
+		}
 
-$this->conf['percentLandscape']
-$this->conf['percentOther']
+		// overwrite all options if set
+		if (trim($this->conf['options'])) {
+			if ($this->conf['optionsOverride']) {
+				$options = array($this->conf['options']);
+			} else {
+				$options['options'] = $this->conf['options'];
+			}
+		}
 
-$this->conf['preloadImages']
-
-$this->conf['reflections']
-$this->conf['reflectionGET']
-$this->conf['reflectionP']
-$this->conf['reflectionPNG']
-
-$this->conf['scrollbarP']
-$this->conf['slider']
-$this->conf['sliderCursor']
-$this->conf['sliderWidth']
-$this->conf['slideshow']
-$this->conf['slideshowSpeed']
-$this->conf['slideshowAutoplay']
-
-$this->conf['startID']
-$this->conf['glideToStartID']
-$this->conf['startAnimation']
-$this->conf['xStep']
-*/
 		$this->addJS("
 domReady(function() {
 	var {$this->getContentKey()} = new ImageFlow();
@@ -327,28 +431,30 @@ domReady(function() {
 		$GLOBALS['TSFE']->register['class'] = $skin_class;
 		$GLOBALS['TSFE']->register['imagewidth']  = $this->conf['imagewidth'];
 		$GLOBALS['TSFE']->register['imageheight'] = $this->conf['imageheight'];
-		$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = 0;
 		if (count($this->images) > 0) {
+			$config = $this->conf['imageflow.'][$this->type.'.'];
 			foreach ($this->images as $key => $image_name) {
 				$image = null;
-				$imgConf = $this->conf['imageflow.'][$this->type.'.']['image.'];
+				$imgConf = $config['image.'];
 				$totalImagePath = $this->imageDir . $image_name;
 				$GLOBALS['TSFE']->register['file']        = $totalImagePath;
 				$GLOBALS['TSFE']->register['href']        = $this->hrefs[$key];
 				$GLOBALS['TSFE']->register['caption']     = $this->captions[$key];
 				$GLOBALS['TSFE']->register['description'] = $this->description[$key];
-				$GLOBALS['TSFE']->register['CURRENT_ID']  = $GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] + 1;
+				$GLOBALS['TSFE']->register['CURRENT_ID']  = $key + 1;
+				$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $key;
 				if ($this->hrefs[$key]) {
 					$imgConf['imageLinkWrap.'] = $imgConf['imageHrefWrap.'];
 				}
 				$image = $this->cObj->IMAGE($imgConf);
 				$images .= $this->cObj->typolink($image, $imgConf['imageLinkWrap.']);
-				// create the navigation
-				$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] ++;
+				$description .= $this->cObj->cObjGetSingle($config['description'], $config['description.']);
 			}
 			// the stdWrap
-			$images = $this->cObj->stdWrap($images, $this->conf['imageflow.'][$this->type.'.']['stdWrap.']);
-			$return_string = $this->cObj->substituteMarkerArray($images, $markerArray, '###|###', 0);
+			$images = $this->cObj->stdWrap($images, $config['stdWrap.']);
+			$description = $this->cObj->stdWrap($description, $config['descriptionWrap.']);
+
+			$return_string = $this->cObj->substituteMarkerArray($images . $description, $markerArray, '###|###', 0);
 		}
 		return $this->pi_wrapInBaseClass($return_string);
 	}

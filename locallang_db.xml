@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
 <T3locallang>
 	<meta type="array">
 		<type>database</type>
@@ -18,34 +18,63 @@
 			<label index="tt_content.pi_flexform.folder">Image folder</label>
 			<label index="tt_content.pi_flexform.images">Images</label>
 			<label index="tt_content.pi_flexform.hrefs">Image links</label>
-			<label index="tt_content.pi_flexform.captions">Image Captions</label>
+			<label index="tt_content.pi_flexform.captions">Image captions</label>
+			<label index="tt_content.pi_flexform.descriptions">Image descriptions</label>
 
-			<label index="tt_content.pi_flexform.sheet_control">Control / Style</label>
+			<label index="tt_content.pi_flexform.sheet_image">Image</label>
 			<label index="tt_content.pi_flexform.imagewidth">Image width</label>
 			<label index="tt_content.pi_flexform.imageheight">Image height</label>
-			<label index="tt_content.pi_flexform.carouselwidth">Carousel width</label>
-			<label index="tt_content.pi_flexform.carouselheight">Carousel height</label>
-		</languageKey>
-		<languageKey index="de" type="array">
-			<label index="tt_content.list_type_pi1">ImageFlow</label>
-			<label index="tt_content.pi_flexform.sheet_general">General</label>
-			<label index="tt_content.pi_flexform.mode">Image carousel mode</label>
-			<label index="tt_content.pi_flexform.mode.I.upload">Upload Images</label>
-			<label index="tt_content.pi_flexform.mode.I.folder">Folder</label>
-			<label index="tt_content.pi_flexform.mode.I.dam">DAM (dam)</label>
-			<label index="tt_content.pi_flexform.mode.I.dam_catedit">DAM category (dam_catedit)</label>
-			<label index="tt_content.pi_flexform.damimages">Images in DAM (dam)</label>
-			<label index="tt_content.pi_flexform.damcategories">Images from DAM category (dam_catedit)</label>
-			<label index="tt_content.pi_flexform.folder">Image folder</label>
-			<label index="tt_content.pi_flexform.images">Images</label>
-			<label index="tt_content.pi_flexform.hrefs">Image links</label>
-			<label index="tt_content.pi_flexform.captions">Image Captions</label>
+			<label index="tt_content.pi_flexform.imageCursor">Cursor type for all images (default: default)</label>
+			<label index="tt_content.pi_flexform.imageFocusM">Multiplicator for the focussed image size ratio (default: 1.0)</label>
+			<label index="tt_content.pi_flexform.imageFocusMax">Max number of images on each side of the focussed one (default: 4)</label>
+			<label index="tt_content.pi_flexform.imageScaling">Toggle image scaling (default: true)</label>
+			<label index="tt_content.pi_flexform.imagesHeight">Height of the images div container ratio (default: 0.67)</label>
+			<label index="tt_content.pi_flexform.imagesM">Multiplicator for all images ratio (default: 1.0)</label>
+			<label index="tt_content.pi_flexform.opacity">Toggle image opacity (default: false)</label>
+			<label index="tt_content.pi_flexform.percentLandscape">Scale landscape format in percent (default: 118)</label>
+			<label index="tt_content.pi_flexform.percentOther">Scale portrait and square format in percent (default: 100)</label>
+			<label index="tt_content.pi_flexform.preloadImages">Toggle loading bar (false: requires img attributes height and width) (default: true)</label>
+
+			<label index="tt_content.pi_flexform.sheet_movement">Movement</label>
+			<label index="tt_content.pi_flexform.animationSpeed">Animation speed in ms (default: 50)</label>
+			<label index="tt_content.pi_flexform.aspectRatio">Aspect ratio of the ImageFlow container (width divided by height) (default: 1.964)</label>
+			<label index="tt_content.pi_flexform.captionsToggle">Toggle captions (default: true)</label>
+			<label index="tt_content.pi_flexform.circular">Toggle circular rotation (default: false)</label>
+			<label index="tt_content.pi_flexform.slideshowAutoplay">Toggle automatic slideshow play on startup (default: false)</label>
+			<label index="tt_content.pi_flexform.slideshowSpeed">Time between slides in ms (default: 1500)</label>
+
+			<label index="tt_content.pi_flexform.sheet_reflection">Reflection</label>
+			<label index="tt_content.pi_flexform.reflections">Toggle reflections (default: true)</label>
+			<label index="tt_content.pi_flexform.reflectionPNG">Toggle transparent reflections (default: false)</label>
+			<label index="tt_content.pi_flexform.reflectionGET">Pass variables via the GET method to the reflect_.php script (default: )</label>
+			<label index="tt_content.pi_flexform.reflectionP">Height of the reflection of the source image ratio (default: 0.5)</label>
+			<label index="tt_content.pi_flexform.backgroundColor">Backgroundcolor to use for reflection (default: 000000)</label>
 
 			<label index="tt_content.pi_flexform.sheet_control">Control / Style</label>
-			<label index="tt_content.pi_flexform.imagewidth">Image width</label>
-			<label index="tt_content.pi_flexform.imageheight">Image height</label>
-			<label index="tt_content.pi_flexform.carouselwidth">Carousel width</label>
-			<label index="tt_content.pi_flexform.carouselheight">Carousel height</label>
+			<label index="tt_content.pi_flexform.buttons">Toggle navigation buttons (default: false)</label>
+			<label index="tt_content.pi_flexform.slider">Toggle slider (default: true)</label>
+			<label index="tt_content.pi_flexform.slideshow">Toggle slideshow (default: false)</label>
+			<label index="tt_content.pi_flexform.scrollbarP">Width of the scrollbar ratio (default: 0.6)</label>
+			<label index="tt_content.pi_flexform.sliderCursor">Slider cursor type (default: e-resize)</label>
+			<label index="tt_content.pi_flexform.sliderWidth">Width of the slider in px (default: 14)</label>
+
+			<label index="tt_content.pi_flexform.sheet_other">Other</label>
+			<label index="tt_content.pi_flexform.xStep">Step width on the x-axis in px (default: 150)</label>
+			<label index="tt_content.pi_flexform.startID">Image ID to begin with (default: 1)</label>
+			<label index="tt_content.pi_flexform.glideToStartID">Toggle glide animation to start ID (default: true)</label>
+			<label index="tt_content.pi_flexform.startAnimation">Animate images moving in from the right on startup (default: false)</label>
+
+			<label index="tt_content.pi_flexform.sheet_options">Options</label>
+			<label index="tt_content.pi_flexform.options">Insert your own options</label>
+			<label index="tt_content.pi_flexform.optionsOverride">Override all options</label>
+
+			<label index="tt_content.pi_flexform.from_ts">From Typoscript</label>
+			<label index="tt_content.pi_flexform.no">No</label>
+			<label index="tt_content.pi_flexform.yes">Yes</label>
 		</languageKey>
 	</data>
+	<orig_hash type="array">
+	</orig_hash>
+	<orig_text type="array">
+	</orig_text>
 </T3locallang>

@@ -53,6 +53,8 @@ function ImageFlow ()
 		imagesHeight:       0.67,           /* Height of the images div container in percent */
 		imagesM:            1.0,            /* Multiplicator for all images in percent */
 		onClick:            function() { document.location = this.url; },   /* Onclick behaviour */
+		onBefore:           function(id) { return true; }, /* Before behaviour */
+		onAfter:            function(id) { return true; }, /* After behaviour */
 		opacity:            false,          /* Toggle image opacity */
 		opacityArray:       [10,8,6,4,2],   /* Image opacity (range: 0 to 10) first value is for the focussed image */
 		percentLandscape:   118,            /* Scale landscape format */
@@ -697,6 +699,7 @@ function ImageFlow ()
 			caption = '&nbsp;';
 		}
 		my.captionDiv.innerHTML = caption;
+		my.onBefore(imageID - my.imageFocusMax);
 
 		/* Set scrollbar slider to new position */
 		if (my.MouseDrag.busy === false)
@@ -780,6 +783,7 @@ function ImageFlow ()
 
 			default:
 				my.busy = false;
+				my.onAfter(my.imageID - my.imageFocusMax);
 				break;
 		}
 	};
@@ -807,7 +811,7 @@ function ImageFlow ()
 		init: function()
 		{
 			/* Call start() if autoplay is enabled, stop() if it is disabled */
-			(my.slideshowAutoplay) ? my.Slideshow.start() : my.Slideshow.stop();	
+			(my.slideshowAutoplay) ? my.Slideshow.start() : my.Slideshow.stop();
 		},
 
 		interrupt: function()

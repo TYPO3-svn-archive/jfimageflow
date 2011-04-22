@@ -12,44 +12,51 @@ plugin.tx_jfimageflow_pi1 {
 	imagePath = {$plugin.tx_jfimageflow_pi1.imagePath}
 	reflectPath = {$plugin.tx_jfimageflow_pi1.reflectPath}
 
-	animationSpeed = {$plugin.tx_jfimageflow_pi1.animationSpeed}
-	aspectRatio = {$plugin.tx_jfimageflow_pi1.aspectRatio}
-	buttons = {$plugin.tx_jfimageflow_pi1.buttons}
-	captions = {$plugin.tx_jfimageflow_pi1.captions}
-	circular = {$plugin.tx_jfimageflow_pi1.circular}
-
+	imagewidth = {$plugin.tx_jfimageflow_pi1.imagewidth}
+	imageheight = {$plugin.tx_jfimageflow_pi1.imageheight}
 	imageCursor = {$plugin.tx_jfimageflow_pi1.imageCursor}
-	ImageFlowID = {$plugin.tx_jfimageflow_pi1.ImageFlowID}
 	imageFocusM = {$plugin.tx_jfimageflow_pi1.imageFocusM}
 	imageFocusMax = {$plugin.tx_jfimageflow_pi1.imageFocusMax}
 	imageScaling = {$plugin.tx_jfimageflow_pi1.imageScaling}
 	imagesHeight = {$plugin.tx_jfimageflow_pi1.imagesHeight}
 	imagesM = {$plugin.tx_jfimageflow_pi1.imagesM}
 	opacity = {$plugin.tx_jfimageflow_pi1.opacity}
-
 	percentLandscape = {$plugin.tx_jfimageflow_pi1.percentLandscape}
 	percentOther = {$plugin.tx_jfimageflow_pi1.percentOther}
-
 	preloadImages = {$plugin.tx_jfimageflow_pi1.preloadImages}
 
+	animationSpeed = {$plugin.tx_jfimageflow_pi1.animationSpeed}
+	aspectRatio = {$plugin.tx_jfimageflow_pi1.aspectRatio}
+	captionsToggle = {$plugin.tx_jfimageflow_pi1.captionsToggle}
+	circular = {$plugin.tx_jfimageflow_pi1.circular}
+	slideshowAutoplay = {$plugin.tx_jfimageflow_pi1.slideshowAutoplay}
+	slideshowSpeed = {$plugin.tx_jfimageflow_pi1.slideshowSpeed}
+
 	reflections = {$plugin.tx_jfimageflow_pi1.reflections}
+	reflectionPNG = {$plugin.tx_jfimageflow_pi1.reflectionPNG}
 	reflectionGET = {$plugin.tx_jfimageflow_pi1.reflectionGET}
 	reflectionP = {$plugin.tx_jfimageflow_pi1.reflectionP}
-	reflectionPNG = {$plugin.tx_jfimageflow_pi1.reflectionPNG}
 	backgroundColor = {$plugin.tx_jfimageflow_pi1.backgroundColor}
 
-	scrollbarP = {$plugin.tx_jfimageflow_pi1.scrollbarP}
+	buttons = {$plugin.tx_jfimageflow_pi1.buttons}
 	slider = {$plugin.tx_jfimageflow_pi1.slider}
+	slideshow = {$plugin.tx_jfimageflow_pi1.slideshow}
+	scrollbarP = {$plugin.tx_jfimageflow_pi1.scrollbarP}
 	sliderCursor = {$plugin.tx_jfimageflow_pi1.sliderCursor}
 	sliderWidth = {$plugin.tx_jfimageflow_pi1.sliderWidth}
-	slideshow = {$plugin.tx_jfimageflow_pi1.slideshow}
-	slideshowSpeed = {$plugin.tx_jfimageflow_pi1.slideshowSpeed}
-	slideshowAutoplay = {$plugin.tx_jfimageflow_pi1.slideshowAutoplay}
 
+	xStep = {$plugin.tx_jfimageflow_pi1.xStep}
 	startID = {$plugin.tx_jfimageflow_pi1.startID}
 	glideToStartID = {$plugin.tx_jfimageflow_pi1.glideToStartID}
 	startAnimation = {$plugin.tx_jfimageflow_pi1.startAnimation}
-	xStep = {$plugin.tx_jfimageflow_pi1.xStep}
+
+	damCaptionFields = {$plugin.tx_jfimageflow_pi1.damCaptionFields}
+	damDescFields = {$plugin.tx_jfimageflow_pi1.damDescFields}
+	damHrefFields = {$plugin.tx_jfimageflow_pi1.damHrefFields}
+
+	options (
+	)
+	optionsOverride = 0
 
 	imageflow {
 		normal {
@@ -78,6 +85,22 @@ plugin.tx_jfimageflow_pi1 {
 			}
 			stdWrap {
 				dataWrap = <div id="{register:key}" class="imageflow"> | </div>
+				required = 1
+			}
+			description = COA
+			description {
+				10 = RECORDS
+				10 {
+					tables = tt_content
+					source.data = register:description
+					dontCheckPid = 1
+				}
+				stdWrap {
+					dataWrap = <div id="{register:key}-{register:IMAGE_NUM_CURRENT}" class="description"> | </div>
+				}
+			}
+			descriptionWrap {
+				dataWrap = <div id="{register:key}-desc"> | </div>
 				required = 1
 			}
 		}

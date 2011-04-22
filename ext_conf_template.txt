@@ -1,6 +1,6 @@
 
 # cat=basic/enable/10; type=boolean; label=Enable select instead of checkbox: If set, most of checkboxes will turn into selectboxes, so you can choose "from TS"
-useSelectInsteadCheckbox = 0
+useSelectInsteadCheckbox = 1
 
 
 # cat=basic/dev/1000; type=user[EXT:jfimageflow/lib/class.tx_jfimageflow_tsparserext.php:tx_jfimageflow_tsparserext->displayMessage]; label=Updater

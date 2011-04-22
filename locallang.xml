@@ -12,12 +12,9 @@
 			<label index="extmng.updatermsgHeader">Warning!</label>
 			<label index="extmng.updatermsg">You have to use the "Update"-Button below to ensure proper working for all functions in this extension.</label>
 		</languageKey>
-		<languageKey index="de" type="array">
-			<label index="pi1_title">ImageFlow</label>
-			<label index="pi1_plus_wiz_description">Inhaltselement mit einer ImageFlow einbinden</label>
-
-			<label index="extmng.updatermsgHeader">Warning!</label>
-			<label index="extmng.updatermsg">You have to use the "Update"-Button below to ensure proper working for all functions in this extension.</label>
-		</languageKey>
 	</data>
+	<orig_hash type="array">
+	</orig_hash>
+	<orig_text type="array">
+	</orig_text>
 </T3locallang>

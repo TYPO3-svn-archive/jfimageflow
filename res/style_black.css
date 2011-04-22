@@ -60,6 +60,8 @@
 		position:absolute;
 		width:14px;
 		z-index:10003;
+		border:none;
+		border-radius:none;
 	}
 	.imageflow .slideshow {
 		cursor:pointer;

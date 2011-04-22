@@ -17,7 +17,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'author' => 'Juergen Furrer',
 	'author_email' => 'juergen.furrer@gmail.com',
 	'shy' => '',
-	'dependencies' => 'imagecarousel',
+	'dependencies' => 'imagecarousel,jftcaforms',
 	'conflicts' => '',
 	'priority' => '',
 	'module' => '',
@@ -35,7 +35,8 @@ $EM_CONF[$_EXTKEY] = array(
 			'cms' => '',
 			'php' => '5.0.0',
 			'typo3' => '4.3.0',
-			'imagecarousel' => '1.6.2',
+			'imagecarousel' => '1.6.3',
+			'jftcaforms' => '',
 		),
 		'conflicts' => array(
 		),
