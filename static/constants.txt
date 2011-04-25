@@ -40,34 +40,40 @@ plugin.tx_jfimageflow_pi1 {
 	# cat=plugin.tx_jfimageflow/dims/020; type=string; label=Image height: Height of the images
 	imageheight = 200c
 
-	# cat=plugin.tx_jfimageflow/dims/030; type=string; label=Max number on side: Max number of images on each side of the focussed one (default: 4)
+	# cat=plugin.tx_jfimageflow/dims/030; type=int; label=Scaled image width: Width of the scaled images
+	scaledwidth = 800
+
+	# cat=plugin.tx_jfimageflow/dims/040; type=int; label=Scaled image height: Height of the scaled images
+	scaledheight = 600
+
+	# cat=plugin.tx_jfimageflow/dims/050; type=string; label=Max number on side: Max number of images on each side of the focussed one (default: 4)
 	imageFocusMax = 
 
-	# cat=plugin.tx_jfimageflow/dims/040; type=int; label=Scale landscape: Scale landscape format in percent (default: 118)
+	# cat=plugin.tx_jfimageflow/dims/060; type=int; label=Scale landscape: Scale landscape format in percent (default: 118)
 	percentLandscape = 
 
-	# cat=plugin.tx_jfimageflow/dims/050; type=int; label=Scale portrait: Scale portrait and square format in percent (default: 100)
+	# cat=plugin.tx_jfimageflow/dims/070; type=int; label=Scale portrait: Scale portrait and square format in percent (default: 100)
 	percentOther = 
 
-	# cat=plugin.tx_jfimageflow/dims/060; type=string; label=Cursor type: Cursor type for all images (default: default)
+	# cat=plugin.tx_jfimageflow/dims/080; type=string; label=Cursor type: Cursor type for all images (default: default)
 	imageCursor = 
 
-	# cat=plugin.tx_jfimageflow/dims/070; type=boolean; label=Image scaling: Toggle image scaling (default: true)
+	# cat=plugin.tx_jfimageflow/dims/090; type=boolean; label=Image scaling: Toggle image scaling (default: true)
 	imageScaling = 
 
-	# cat=plugin.tx_jfimageflow/dims/080; type=boolean; label=Image opacity: Toggle image opacity (default: false)
+	# cat=plugin.tx_jfimageflow/dims/100; type=boolean; label=Image opacity: Toggle image opacity (default: false)
 	opacity = 
 
-	# cat=plugin.tx_jfimageflow/dims/090; type=boolean; label=Preloading image: Toggle loading bar (false: requires img attributes height and width) (default: true)
+	# cat=plugin.tx_jfimageflow/dims/110; type=boolean; label=Preloading image: Toggle loading bar (false: requires img attributes height and width) (default: true)
 	preloadImages = 
 
-	# cat=plugin.tx_jfimageflow/dims/100; type=string; label=Multiplicator focus: Multiplicator for the focussed image size ratio (default: 1.0)
+	# cat=plugin.tx_jfimageflow/dims/120; type=string; label=Multiplicator focus: Multiplicator for the focussed image size ratio (default: 1.0)
 	imageFocusM = 
 
-	# cat=plugin.tx_jfimageflow/dims/110; type=string; label=Height of container: Height of the images div container ratio (default: 0.67)
+	# cat=plugin.tx_jfimageflow/dims/130; type=string; label=Height of container: Height of the images div container ratio (default: 0.67)
 	imagesHeight = 
 
-	# cat=plugin.tx_jfimageflow/dims/120; type=string; label=Multiplicator image: Multiplicator for all images ratio (default: 1.0)
+	# cat=plugin.tx_jfimageflow/dims/140; type=string; label=Multiplicator image: Multiplicator for all images ratio (default: 1.0)
 	imagesM = 
 
 

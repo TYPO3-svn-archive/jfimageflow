@@ -14,6 +14,8 @@ plugin.tx_jfimageflow_pi1 {
 
 	imagewidth = {$plugin.tx_jfimageflow_pi1.imagewidth}
 	imageheight = {$plugin.tx_jfimageflow_pi1.imageheight}
+	scaledwidth = {$plugin.tx_jfimageflow_pi1.scaledwidth}
+	scaledheight = {$plugin.tx_jfimageflow_pi1.scaledheight}
 	imageCursor = {$plugin.tx_jfimageflow_pi1.imageCursor}
 	imageFocusM = {$plugin.tx_jfimageflow_pi1.imageFocusM}
 	imageFocusMax = {$plugin.tx_jfimageflow_pi1.imageFocusMax}
@@ -66,22 +68,24 @@ plugin.tx_jfimageflow_pi1 {
 					width.data = register:imagewidth
 					height.data = register:imageheight
 				}
-				imageLinkWrap < tt_content.image.20.1.imageLinkWrap
-				imageHrefWrap {
-					enable.data = register:href
-					typolink {
-						parameter.data = register:href
-						title.data = register:caption
-						target = {$plugin.tx_jfimageflow_pi1.linkTarget}
-						extTarget = {$plugin.tx_jfimageflow_pi1.extlinkTarget}
-					}
-				}
 				altText {
 					data = register:caption
 					stripHtml = 1
 				}
 				titleText < .altText
-				longdescURL < .altText
+				longdescURL >
+				longdescURL {
+					typolink {
+						parameter.data = register:href
+						parameter.ifEmpty.cObject = IMG_RESOURCE
+						parameter.ifEmpty.cObject {
+							file.import.data = TSFE:lastImageInfo|origFile
+							file.maxW = {$plugin.tx_jfimageflow_pi1.scaledwidth}
+							file.maxH = {$plugin.tx_jfimageflow_pi1.scaledheight}
+						}
+						returnLast = url
+					}
+				}
 			}
 			stdWrap {
 				dataWrap = <div id="{register:key}" class="imageflow"> | </div>
@@ -105,5 +109,4 @@ plugin.tx_jfimageflow_pi1 {
 			}
 		}
 	}
-
 }

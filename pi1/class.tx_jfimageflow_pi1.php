@@ -76,13 +76,13 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			$this->type = 'normal';
 
 			// It's a content, al data from flexform
-
 			$this->lConf['mode']              = $this->getFlexformData('general', 'mode');
-			$this->lConf['images']            = $this->getFlexformData('general', 'images');
-			$this->lConf['hrefs']             = $this->getFlexformData('general', 'hrefs');
-			$this->lConf['captions']          = $this->getFlexformData('general', 'captions');
-			$this->lConf['descriptions']      = $this->getFlexformData('general', 'descriptions');
-			$this->lConf['damimages']         = $this->getFlexformData('general', 'damimages');
+			$this->lConf['images']            = $this->getFlexformData('general', 'images', ($this->lConf['mode'] == 'upload'));
+			$this->lConf['hrefs']             = $this->getFlexformData('general', 'hrefs', ($this->lConf['mode'] == 'upload'));
+			$this->lConf['captions']          = $this->getFlexformData('general', 'captions', ($this->lConf['mode'] == 'upload'));
+			$this->lConf['descriptions']      = $this->getFlexformData('general', 'descriptions', ($this->lConf['mode'] == 'upload'));
+			$this->lConf['damimages']         = $this->getFlexformData('general', 'damimages', ($this->lConf['mode'] == 'dam'));
+			$this->lConf['damcategories']     = $this->getFlexformData('general', 'damcategories', ($this->lConf['mode'] == 'dam_catedit'));
 
 			$this->lConf['imagewidth']        = $this->getFlexformData('image', 'imagewidth');
 			$this->lConf['imageheight']       = $this->getFlexformData('image', 'imageheight');
@@ -443,11 +443,7 @@ domReady(function() {
 				$GLOBALS['TSFE']->register['description'] = $this->description[$key];
 				$GLOBALS['TSFE']->register['CURRENT_ID']  = $key + 1;
 				$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $key;
-				if ($this->hrefs[$key]) {
-					$imgConf['imageLinkWrap.'] = $imgConf['imageHrefWrap.'];
-				}
-				$image = $this->cObj->IMAGE($imgConf);
-				$images .= $this->cObj->typolink($image, $imgConf['imageLinkWrap.']);
+				$images .= $this->cObj->IMAGE($imgConf);
 				$description .= $this->cObj->cObjGetSingle($config['description'], $config['description.']);
 			}
 			// the stdWrap

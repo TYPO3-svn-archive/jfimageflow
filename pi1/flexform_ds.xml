@@ -24,6 +24,7 @@
 							</config>
 						</TCEforms>
 					</mode>
+
 					<images>
 						<TCEforms>
 							<displayCond>FIELD:mode:!IN:dam,dam_catedit</displayCond>
@@ -80,6 +81,7 @@
 							</config>
 						</TCEforms>
 					</descriptions>
+
 					<damimages>
 						<TCEforms>
 							<displayCond>FIELD:mode:=:dam</displayCond>
@@ -107,6 +109,7 @@
 							</config>
 						</TCEforms>
 					</damimages>
+
 					<damcategories>
 						<TCEforms>
 							<displayCond>FIELD:mode:=:dam_catedit</displayCond>

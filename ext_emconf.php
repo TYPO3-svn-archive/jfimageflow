@@ -35,7 +35,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'cms' => '',
 			'php' => '5.0.0',
 			'typo3' => '4.3.0',
-			'imagecarousel' => '1.6.3',
+			'imagecarousel' => '1.6.4',
 			'jftcaforms' => '',
 		),
 		'conflicts' => array(
