@@ -1,21 +1,15 @@
 plugin.tx_jfimageflow_pi1 {
 
-	# cat=plugin.tx_jfimageflow/enable/010; type=options[_self,_new,_top,_parent]; label=Internal linktarget:The target where internal links will be opend
-	linkTarget = _self
-
-	# cat=plugin.tx_jfimageflow/enable/020; type=options[_self,_new,_top,_parent]; label=External linktarget:The target where external links will be opend
-	extlinkTarget = _new
-
-	# cat=plugin.tx_jfimageflow/enable/040; type=boolean; label=Javascript in Footer: If set, the Javascript will be rendered in Footer
+	# cat=plugin.tx_jfimageflow/enable/010; type=boolean; label=Javascript in Footer: If set, the Javascript will be rendered in Footer
 	jsInFooter = 0
 
-	# cat=plugin.tx_jfimageflow/enable/050; type=boolean; label=Minify Javascript: If set, the Javascript will be minified
+	# cat=plugin.tx_jfimageflow/enable/020; type=boolean; label=Minify Javascript: If set, the Javascript will be minified
 	jsMinify = 0
 
-	# cat=plugin.tx_jfimageflow/enable/060; type=boolean; label=Javascript to Inline: If set, the Javascript will be inserted into the inlineJS, after this, its possible to put it into externel files (config.removeDefaultJS = external)
+	# cat=plugin.tx_jfimageflow/enable/030; type=boolean; label=Javascript to Inline: If set, the Javascript will be inserted into the inlineJS, after this, its possible to put it into externel files (config.removeDefaultJS = external)
 	jsInline = 0
 
-	# cat=plugin.tx_jfimageflow/enable/070; type=boolean; label=Minify CSS: If set, the CSS will be minified
+	# cat=plugin.tx_jfimageflow/enable/040; type=boolean; label=Minify CSS: If set, the CSS will be minified
 	cssMinify = 0
 
 
@@ -46,7 +40,7 @@ plugin.tx_jfimageflow_pi1 {
 	# cat=plugin.tx_jfimageflow/dims/040; type=int; label=Scaled image height: Height of the scaled images
 	scaledheight = 600
 
-	# cat=plugin.tx_jfimageflow/dims/050; type=string; label=Max number on side: Max number of images on each side of the focussed one (default: 4)
+	# cat=plugin.tx_jfimageflow/dims/050; type=int; label=Max number on side: Max number of images on each side of the focussed one (default: 4)
 	imageFocusMax = 
 
 	# cat=plugin.tx_jfimageflow/dims/060; type=int; label=Scale landscape: Scale landscape format in percent (default: 118)
@@ -149,10 +143,10 @@ plugin.tx_jfimageflow_pi1 {
 
 
 
-	# cat=plugin.tx_jfimageflow/basic/010; type=string; label=DAM caption fields: Comma seperated string with tx_dam fields
+	# cat=plugin.tx_jfimageflow/basic/010; type=string; label=DAM caption fields: Comma separated string with tx_dam fields
 	damCaptionFields = caption,title
 
-	# cat=plugin.tx_jfimageflow/basic/020; type=string; label=DAM Description fields: Comma seperated string with tx_dam fields
+	# cat=plugin.tx_jfimageflow/basic/020; type=string; label=DAM Description fields: Comma separated string with tx_dam fields
 	damDescFields = description
 
 	# cat=plugin.tx_jfimageflow/basic/030; type=string; label=DAM href field: Witch field will be used for href in tx_dam

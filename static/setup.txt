@@ -1,7 +1,5 @@
 plugin.tx_jfimageflow_pi1 {
 
-	linkTarget = {$plugin.tx_jfimageflow_pi1.linkTarget}
-	extlinkTarget = {$plugin.tx_jfimageflow_pi1.extlinkTarget}
 	jsInFooter = {$plugin.tx_jfimageflow_pi1.jsInFooter}
 	jsMinify = {$plugin.tx_jfimageflow_pi1.jsMinify}
 	jsInline = {$plugin.tx_jfimageflow_pi1.jsInline}

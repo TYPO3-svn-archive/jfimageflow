@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "jfimageflow".
 #
-# Auto generated 18-04-2011 22:24
+# Auto generated 08-05-2011 22:05
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -17,7 +17,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'author' => 'Juergen Furrer',
 	'author_email' => 'juergen.furrer@gmail.com',
 	'shy' => '',
-	'dependencies' => 'imagecarousel,jftcaforms',
+	'dependencies' => 'cms,imagecarousel,jftcaforms',
 	'conflicts' => '',
 	'priority' => '',
 	'module' => '',
@@ -29,12 +29,12 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.0.0',
+	'version' => '0.0.1',
 	'constraints' => array(
 		'depends' => array(
 			'cms' => '',
-			'php' => '5.0.0',
-			'typo3' => '4.3.0',
+			'php' => '5.0.0-0.0.0',
+			'typo3' => '4.3.0-0.0.0',
 			'imagecarousel' => '1.6.4',
 			'jftcaforms' => '',
 		),
@@ -43,7 +43,9 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:16:{s:9:"ChangeLog";s:4:"af17";s:10:"README.txt";s:4:"ee2d";s:12:"ext_icon.gif";s:4:"1bdc";s:17:"ext_localconf.php";s:4:"ae6a";s:14:"ext_tables.php";s:4:"8300";s:13:"locallang.xml";s:4:"56cc";s:16:"locallang_db.xml";s:4:"8817";s:19:"doc/wizard_form.dat";s:4:"19f9";s:20:"doc/wizard_form.html";s:4:"b14a";s:14:"pi1/ce_wiz.gif";s:4:"02b6";s:32:"pi1/class.tx_jfimageflow_pi1.php";s:4:"1d09";s:40:"pi1/class.tx_jfimageflow_pi1_wizicon.php";s:4:"5143";s:13:"pi1/clear.gif";s:4:"cc11";s:17:"pi1/locallang.xml";s:4:"420c";s:30:"static/imageflow/constants.txt";s:4:"9273";s:26:"static/imageflow/setup.txt";s:4:"0891";}',
+	'_md5_values_when_last_written' => 'a:34:{s:21:"ext_conf_template.txt";s:4:"ee56";s:12:"ext_icon.gif";s:4:"9fec";s:17:"ext_localconf.php";s:4:"3903";s:14:"ext_tables.php";s:4:"1113";s:13:"locallang.xml";s:4:"6c0c";s:16:"locallang_db.xml";s:4:"3696";s:12:"mode_dam.gif";s:4:"999b";s:15:"mode_damcat.gif";s:4:"2596";s:15:"mode_folder.gif";s:4:"9d05";s:15:"mode_upload.gif";s:4:"fecd";s:14:"doc/manual.sxw";s:4:"5673";s:42:"lib/class.tx_jfimageflow_itemsProcFunc.php";s:4:"dd6d";s:36:"lib/class.tx_jfimageflow_tceFunc.php";s:4:"d0a0";s:40:"lib/class.tx_jfimageflow_tsparserext.php";s:4:"20eb";s:14:"pi1/ce_wiz.gif";s:4:"6f21";s:32:"pi1/class.tx_jfimageflow_pi1.php";s:4:"8a77";s:40:"pi1/class.tx_jfimageflow_pi1_wizicon.php";s:4:"2577";s:13:"pi1/clear.gif";s:4:"cc11";s:19:"pi1/flexform_ds.xml";s:4:"3bfb";s:17:"pi1/locallang.xml";s:4:"420c";s:22:"res/imageflow-1.3.0.js";s:4:"660d";s:27:"res/imageflow-1.3.0.pack.js";s:4:"fd00";s:16:"res/reflect2.php";s:4:"1bee";s:16:"res/reflect3.php";s:4:"31b1";s:13:"res/style.css";s:4:"5441";s:19:"res/style_black.css";s:4:"c118";s:23:"res/img/button_left.png";s:4:"bda1";s:24:"res/img/button_pause.png";s:4:"32a3";s:23:"res/img/button_play.png";s:4:"4410";s:24:"res/img/button_right.png";s:4:"4410";s:18:"res/img/slider.png";s:4:"b48a";s:23:"res/img/slider_dark.png";s:4:"7b5d";s:20:"static/constants.txt";s:4:"6ac6";s:16:"static/setup.txt";s:4:"bfb2";}',
+	'suggests' => array(
+	),
 );
 
 ?>
