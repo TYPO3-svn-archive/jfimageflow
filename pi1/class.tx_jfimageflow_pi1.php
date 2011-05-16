@@ -443,7 +443,8 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 		$GLOBALS['TSFE']->register['imageheight'] = $this->conf['imageheight'];
 		if (count($this->images) > 0) {
 			$config = $this->conf['imageflow.'][$this->type.'.'];
-			foreach ($this->images as $key => $image_name) {
+			$key = 0;
+			foreach ($this->images as $image_name) {
 				$image = null;
 				$imgConf = $config['image.'];
 				$totalImagePath = $this->imageDir . $image_name;
@@ -452,9 +453,10 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 				$GLOBALS['TSFE']->register['caption']     = $this->captions[$key];
 				$GLOBALS['TSFE']->register['description'] = $this->description[$key];
 				$GLOBALS['TSFE']->register['CURRENT_ID']  = $key + 1;
-				$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $key;
+				$GLOBALS['TSFE']->register['IMAGE_ID']    = $key;
 				$images .= $this->cObj->IMAGE($imgConf);
 				$description .= $this->cObj->cObjGetSingle($config['description'], $config['description.']);
+				$key ++;
 			}
 			// the stdWrap
 			$images = $this->cObj->stdWrap($images, $config['stdWrap.']);
