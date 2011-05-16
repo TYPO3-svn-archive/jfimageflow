@@ -1,6 +1,6 @@
 ﻿/*
 Name:       ImageFlow
-Version:    1.3.0 (March 9 2010)
+Version:    1.3.2 (March 9 2010)
 Author:     Finn Rudolph
 Support:    http://finnrudolph.de/ImageFlow
 
@@ -699,7 +699,7 @@ function ImageFlow ()
 			caption = '&nbsp;';
 		}
 		my.captionDiv.innerHTML = caption;
-		my.onBefore(imageID);
+		my.onBefore(imageID - (my.circular ? my.imageFocusMax : 0));
 
 		/* Set scrollbar slider to new position */
 		if (my.MouseDrag.busy === false)
@@ -783,7 +783,7 @@ function ImageFlow ()
 
 			default:
 				my.busy = false;
-				my.onAfter(my.imageID);
+				my.onAfter(my.imageID - (my.circular ? my.imageFocusMax : 0));
 				break;
 		}
 	};
