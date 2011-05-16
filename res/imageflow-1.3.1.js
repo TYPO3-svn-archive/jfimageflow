@@ -699,7 +699,7 @@ function ImageFlow ()
 			caption = '&nbsp;';
 		}
 		my.captionDiv.innerHTML = caption;
-		my.onBefore(imageID - my.imageFocusMax);
+		my.onBefore(imageID);
 
 		/* Set scrollbar slider to new position */
 		if (my.MouseDrag.busy === false)
@@ -783,7 +783,7 @@ function ImageFlow ()
 
 			default:
 				my.busy = false;
-				my.onAfter(my.imageID - my.imageFocusMax);
+				my.onAfter(my.imageID);
 				break;
 		}
 	};
@@ -1460,8 +1460,7 @@ domReadyEvent.init();
 
 
 /* Create ImageFlow instances when the DOM structure has been loaded */
-domReady(function()
-{
+domReady(function() {
 	var instanceOne = new ImageFlow();
 	instanceOne.init({ ImageFlowID:'myImageFlow' });
 });

@@ -42,6 +42,12 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 	public $scriptRelPath = 'pi1/class.tx_jfimageflow_pi1.php';
 	public $extKey        = 'jfimageflow';
 	public $pi_checkCHash = true;
+	public $images = array();
+	public $hrefs = array();
+	public $captions = array();
+	public $description = array();
+	public $imageDir = 'uploads/tx_jfimageflow/';
+	public $type = 'normal';
 	public $lConf = array();
 	public $templatePart = null;
 	public $contentKey = null;
@@ -49,12 +55,7 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 	public $js = array();
 	public $cssFiles = array();
 	public $css = array();
-	public $images = array();
-	public $hrefs = array();
-	public $captions = array();
-	public $description = array();
-	public $imageDir = 'uploads/tx_jfimageflow/';
-	public $type = 'normal';
+	public $templateFileJS = null;
 
 	/**
 	 * The main method of the PlugIn
@@ -288,6 +289,11 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			$this->setContentKey($this->extKey . '_key');
 		}
 
+		// The template for JS
+		if (! $this->templateFileJS = $this->cObj->fileResource($this->conf['templateFileJS'])) {
+			$this->templateFileJS = $this->cObj->fileResource("EXT:jfimageflow/res/tx_jfimageflow.js");
+		}
+
 		// define the js files
 		$this->addJsFile($this->conf['imageFlowJS']);
 		$this->addCssFile($this->conf['imageFlowCSS']);
@@ -409,12 +415,16 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			}
 		}
 
-		$this->addJS("
-domReady(function() {
-	var {$this->getContentKey()} = new ImageFlow();
-	{$this->getContentKey()}.init(".(count($options) ? "{\n		".implode(",\n		", $options)."\n	}" : "").");
-});
-");
+		// define the markers
+		$markerArray = array();
+		$markerArray["KEY"]     = $this->getContentKey();
+		$markerArray["OPTIONS"] = implode(",\n		", $options);
+
+		// get the Template of the Javascript
+		if (! $templateCode = trim($this->cObj->getSubpart($this->templateFileJS, "###TEMPLATE_JS###"))) {
+			$templateCode = "alert('Template TEMPLATE_JS is missing')";
+		}
+		$this->addJS($this->cObj->substituteMarkerArray($templateCode, $markerArray, '###|###', 0));
 
 		// Add the ressources
 		$this->addResources();

@@ -446,10 +446,10 @@
 							<config>
 								<form_type>user</form_type>
 								<userFunc><![CDATA[EXT:jftcaforms/lib/class.tx_jftcaforms_tceFunc.php:&tx_jftcaforms_tceFunc->getExtSlider]]></userFunc>
-								<width>300</width>
+								<width>500</width>
 								<range>
 									<lower>0</lower>
-									<upper>2</upper>
+									<upper>5</upper>
 								</range>
 								<decimalPrecision>2</decimalPrecision>
 								<emptyValue>1</emptyValue>

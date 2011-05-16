@@ -6,6 +6,7 @@ plugin.tx_jfimageflow_pi1 {
 	cssMinify = {$plugin.tx_jfimageflow_pi1.cssMinify}
 
 	imageFlowJS = {$plugin.tx_jfimageflow_pi1.file.imageFlowJS}
+	templateFileJS = {$plugin.tx_jfimageflow_pi1.file.templateFileJS}
 	imageFlowCSS = {$plugin.tx_jfimageflow_pi1.file.imageFlowCSS}
 	imagePath = {$plugin.tx_jfimageflow_pi1.imagePath}
 	reflectPath = {$plugin.tx_jfimageflow_pi1.reflectPath}
@@ -98,7 +99,7 @@ plugin.tx_jfimageflow_pi1 {
 					dontCheckPid = 1
 				}
 				stdWrap {
-					dataWrap = <div id="{register:key}-{register:IMAGE_NUM_CURRENT}" class="description"> | </div>
+					dataWrap = <div id="{register:key}-{register:IMAGE_ID}" class="description"> | </div>
 				}
 			}
 			descriptionWrap {
