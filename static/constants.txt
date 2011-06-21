@@ -21,7 +21,7 @@ plugin.tx_jfimageflow_pi1 {
 	file.templateFileJS = EXT:jfimageflow/res/tx_jfimageflow.js
 
 	# cat=plugin.tx_jfimageflow/file/030; type=file[css]; label=ImageFlow CSS: Location of the ImageFlow CSS
-	file.imageFlowCSS = EXT:jfimageflow/res/style.css
+	file.imageFlowCSS = EXT:jfimageflow/res/css/dark/style.css
 
 	# cat=plugin.tx_jfimageflow/file/040; type=string; label=Path to image: Path to the images relative to the reflect_.php script
 	imagePath = ../../../../
