@@ -640,11 +640,9 @@
 							<exclude>1</exclude>
 							<label>LLL:EXT:jfimageflow/locallang_db.xml:tt_content.pi_flexform.backgroundColor</label>
 							<config>
-								<type>input</type>
-								<size>6</size>
-								<max>6</max>
-								<default></default>
-								<eval>nospace</eval>
+								<form_type>user</form_type>
+								<userFunc><![CDATA[EXT:jftcaforms/lib/class.tx_jftcaforms_tceFunc.php:&tx_jftcaforms_tceFunc->getColorPicker]]></userFunc>
+								<emptyValue>1</emptyValue>
 							</config>
 						</TCEforms>
 					</backgroundColor>

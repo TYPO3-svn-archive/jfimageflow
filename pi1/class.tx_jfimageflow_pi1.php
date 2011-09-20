@@ -233,7 +233,7 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			if ($this->lConf['reflectionGET']) {
 				$this->conf['reflectionGET'] = $this->lConf['reflectionGET'];
 			}
-			if ($this->lConf['backgroundColor']) {
+			if (strlen($this->lConf['backgroundColor']) == 6) {
 				$this->conf['backgroundColor'] = $this->lConf['backgroundColor'];
 			}
 			if ($this->lConf['reflections'] < 2) {
@@ -279,6 +279,9 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 	 */
 	public function parseTemplate($dir='', $onlyJS=false)
 	{
+		$this->pagerenderer = t3lib_div::makeInstance('tx_imagecarousel_pagerenderer');
+		$this->pagerenderer->setConf($this->conf);
+
 		// define the directory of images
 		if ($dir == '') {
 			$dir = $this->imageDir;
@@ -295,8 +298,8 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 		}
 
 		// define the js files
-		$this->addJsFile($this->conf['imageFlowJS']);
-		$this->addCssFile($this->conf['imageFlowCSS']);
+		$this->pagerenderer->addJsFile($this->conf['imageFlowJS']);
+		$this->pagerenderer->addCssFile($this->conf['imageFlowCSS']);
 
 		// get the options from config
 		$options = array();
@@ -424,10 +427,10 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 		if (! $templateCode = trim($this->cObj->getSubpart($this->templateFileJS, "###TEMPLATE_JS###"))) {
 			$templateCode = "alert('Template TEMPLATE_JS is missing')";
 		}
-		$this->addJS($this->cObj->substituteMarkerArray($templateCode, $markerArray, '###|###', 0));
+		$this->pagerenderer->addJS($this->cObj->substituteMarkerArray($templateCode, $markerArray, '###|###', 0));
 
 		// Add the ressources
-		$this->addResources();
+		$this->pagerenderer->addResources();
 
 		if ($onlyJS === true) {
 			return true;
