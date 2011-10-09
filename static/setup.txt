@@ -4,6 +4,7 @@ plugin.tx_jfimageflow_pi1 {
 	jsMinify = {$plugin.tx_jfimageflow_pi1.jsMinify}
 	jsInline = {$plugin.tx_jfimageflow_pi1.jsInline}
 	cssMinify = {$plugin.tx_jfimageflow_pi1.cssMinify}
+	disableRecursion = {$plugin.tx_jfimageflow_pi1.disableRecursion}
 
 	imageFlowJS = {$plugin.tx_jfimageflow_pi1.file.imageFlowJS}
 	templateFileJS = {$plugin.tx_jfimageflow_pi1.file.templateFileJS}
@@ -107,5 +108,6 @@ plugin.tx_jfimageflow_pi1 {
 				required = 1
 			}
 		}
+		header < .normal
 	}
 }
