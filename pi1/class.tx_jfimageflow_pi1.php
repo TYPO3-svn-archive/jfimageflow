@@ -69,8 +69,12 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 		$this->conf = $conf;
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
-			// define the key of the element
+
+		// define the key of the element
 		$this->setContentKey();
+
+		// set the system language
+		$this->sys_language_uid = $GLOBALS['TSFE']->sys_language_content;
 
 		$pageID = false;
 		if ($this->cObj->data['list_type'] == $this->extKey.'_pi1') {
