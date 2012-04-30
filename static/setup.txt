@@ -73,17 +73,20 @@ plugin.tx_jfimageflow_pi1 {
 					stripHtml = 1
 				}
 				titleText < .altText
-				longdescURL >
-				longdescURL {
-					typolink {
-						parameter.data = register:href
-						parameter.ifEmpty.cObject = IMG_RESOURCE
-						parameter.ifEmpty.cObject {
-							file.import.data = TSFE:lastImageInfo|origFile
-							file.maxW = {$plugin.tx_jfimageflow_pi1.scaledwidth}
-							file.maxH = {$plugin.tx_jfimageflow_pi1.scaledheight}
+				params {
+					cObject = TEXT
+					cObject {
+						wrap = data-url="|"
+						typolink {
+							parameter.data = register:href
+							parameter.ifEmpty.cObject = IMG_RESOURCE
+							parameter.ifEmpty.cObject {
+								file.import.data = TSFE:lastImageInfo|origFile
+								file.maxW = {$plugin.tx_jfimageflow_pi1.scaledwidth}
+								file.maxH = {$plugin.tx_jfimageflow_pi1.scaledheight}
+							}
+							returnLast = url
 						}
-						returnLast = url
 					}
 				}
 			}

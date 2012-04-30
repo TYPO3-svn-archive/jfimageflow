@@ -75,7 +75,8 @@ function ImageFlow ()
 		startID:            1,              /* Image ID to begin with */
 		glideToStartID:     true,           /* Toggle glide animation to start ID */
 		startAnimation:     false,          /* Animate images moving in from the right on startup */
-		xStep:              150             /* Step width on the x-axis in px */
+		xStep:              150,            /* Step width on the x-axis in px */
+		dataAttribute:      'data-url'      /* Attribute where the url is stored */
 	};
 
 
@@ -425,7 +426,7 @@ function ImageFlow ()
 				this.indexArray[i] = index;
 
 				/* Set image attributes to store values */
-				image.url = image.getAttribute('longdesc');
+				image.url = image.getAttribute(my.dataAttribute ? my.dataAttribute : 'data-url');
 				image.xPosition = (-i * my.xStep);
 				image.i = i;
 
