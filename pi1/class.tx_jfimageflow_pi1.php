@@ -121,6 +121,8 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			$this->lConf['reflections']       = $this->getFlexformData('reflection', 'reflections');
 			$this->lConf['reflectionPNG']     = $this->getFlexformData('reflection', 'reflectionPNG');
 			$this->lConf['reflectionP']       = $this->getFlexformData('reflection', 'reflectionP');
+			$this->lConf['reflectionStart']   = $this->getFlexformData('reflection', 'reflectionStart');
+			$this->lConf['reflectionStop']    = $this->getFlexformData('reflection', 'reflectionStop');
 
 			$this->lConf['xStep']             = $this->getFlexformData('other', 'xStep');
 			$this->lConf['startID']           = $this->getFlexformData('other', 'startID');
@@ -248,6 +250,12 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			}
 			if ($this->lConf['reflectionP']) {
 				$this->conf['reflectionP'] = $this->lConf['reflectionP'];
+			}
+			if ($this->lConf['reflectionStart']) {
+				$this->conf['reflectionStart'] = $this->lConf['reflectionStart'];
+			}
+			if ($this->lConf['reflectionStop']) {
+				$this->conf['reflectionStop'] = $this->lConf['reflectionStop'];
 			}
 
 			// other
@@ -434,13 +442,19 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			$options['scrollbarP'] = "scrollbarP: {$this->conf['scrollbarP']}";
 		}
 
-		if ($this->conf['reflectionGET'] . $this->conf['backgroundColor']) {
+		if ($this->conf['reflectionGET'] . $this->conf['backgroundColor'] . $this->conf['reflectionStart'] . $this->conf['reflectionStop']) {
 			$get = array();
 			if ($this->conf['reflectionGET']) {
 				$get[] = $this->conf['reflectionGET'];
 			}
 			if ($this->conf['backgroundColor']) {
 				$get[] = "bgc=".$this->conf['backgroundColor'];
+			}
+			if ($this->conf['reflectionStart']) {
+				$get[] = "fade_start=".$this->conf['reflectionStart'];
+			}
+			if ($this->conf['reflectionStop']) {
+				$get[] = "fade_stop=".$this->conf['reflectionStop'];
 			}
 			$options['reflectionGET'] = "reflectionGET: '&".implode("&", $get)."'";
 		}

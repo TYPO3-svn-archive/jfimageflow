@@ -685,6 +685,38 @@
 							</config>
 						</TCEforms>
 					</reflectionP>
+					<reflectionStart>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:jfimageflow/locallang_db.xml:tt_content.pi_flexform.reflectionStart</label>
+							<config>
+								<form_type>user</form_type>
+								<userFunc><![CDATA[EXT:jftcaforms/lib/class.tx_jftcaforms_tceFunc.php:&tx_jftcaforms_tceFunc->getExtSlider]]></userFunc>
+								<width>300</width>
+								<range>
+									<lower>0</lower>
+									<upper>100</upper>
+								</range>
+								<emptyValue>1</emptyValue>
+							</config>
+						</TCEforms>
+					</reflectionStart>
+					<reflectionStop>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:jfimageflow/locallang_db.xml:tt_content.pi_flexform.reflectionStop</label>
+							<config>
+								<form_type>user</form_type>
+								<userFunc><![CDATA[EXT:jftcaforms/lib/class.tx_jftcaforms_tceFunc.php:&tx_jftcaforms_tceFunc->getExtSlider]]></userFunc>
+								<width>300</width>
+								<range>
+									<lower>0</lower>
+									<upper>100</upper>
+								</range>
+								<emptyValue>1</emptyValue>
+							</config>
+						</TCEforms>
+					</reflectionStop>
 				</el>
 			</ROOT>
 		</reflection>

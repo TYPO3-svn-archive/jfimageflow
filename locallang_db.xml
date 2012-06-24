@@ -48,6 +48,8 @@
 			<label index="tt_content.pi_flexform.reflectionPNG">Toggle transparent reflections (default: false)</label>
 			<label index="tt_content.pi_flexform.reflectionGET">Pass variables via the GET method to the reflect_.php script (default: )</label>
 			<label index="tt_content.pi_flexform.reflectionP">Height of the reflection of the source image ratio (default: 0.5)</label>
+			<label index="tt_content.pi_flexform.reflectionStart">Start reflection opacty (default: 80</label>
+			<label index="tt_content.pi_flexform.reflectionStop">Stop reflection opacity (default: 0)</label>
 			<label index="tt_content.pi_flexform.backgroundColor">Backgroundcolor to use for reflection (default: 000000)</label>
 
 			<label index="tt_content.pi_flexform.sheet_control">Control / Style</label>

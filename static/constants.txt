@@ -133,6 +133,12 @@ plugin.tx_jfimageflow_pi1 {
 	# cat=plugin.tx_jfimageflow/color/040; type=string; label=Reflection height: Height of the reflection of the source image ratio (default: 0.5)
 	reflectionP = 
 
+	# cat=plugin.tx_jfimageflow/color/050; type=int; label=Reflection opacity start: Start persentage of opacity for reflection (default: 80)
+	reflectionStart = 
+
+	# cat=plugin.tx_jfimageflow/color/060; type=int; label=Reflection opacity stop: Stop persentage of opacity for reflection (default: 0)
+	reflectionStop = 
+
 
 
 	# cat=plugin.tx_jfimageflow/others/010; type=int; label=Step in x-axis: Step width on the x-axis in px (default: 150)

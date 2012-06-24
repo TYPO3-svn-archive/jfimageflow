@@ -38,6 +38,8 @@ plugin.tx_jfimageflow_pi1 {
 	reflectionPNG = {$plugin.tx_jfimageflow_pi1.reflectionPNG}
 	reflectionGET = {$plugin.tx_jfimageflow_pi1.reflectionGET}
 	reflectionP = {$plugin.tx_jfimageflow_pi1.reflectionP}
+	reflectionStart = {$plugin.tx_jfimageflow_pi1.reflectionStart}
+	reflectionStop = {$plugin.tx_jfimageflow_pi1.reflectionStop}
 	backgroundColor = {$plugin.tx_jfimageflow_pi1.backgroundColor}
 
 	buttons = {$plugin.tx_jfimageflow_pi1.buttons}
