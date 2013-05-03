@@ -136,7 +136,7 @@ class tx_jfimageflow_pi1 extends tx_imagecarousel_pi1
 			$this->setContentKey($this->extKey . "_c" . $this->cObj->data['uid']);
 
 			// define the images
-			switch ($this->lConf['mode']) {
+			switch ($this->conf['mode']) {
 				case "" : {}
 				case "folder" : {}
 				case "upload" : {

@@ -81,7 +81,7 @@ plugin.tx_jfimageflow_pi1 {
 	# cat=plugin.tx_jfimageflow/typo/010; type=int; label=Animation speed: Animation speed in ms (default: 50)
 	animationSpeed = 
 
-	# cat=plugin.tx_jfimageflow/typo/060; type=int; label=Time between slides: Time between slides in ms (default: 1500)
+	# cat=plugin.tx_jfimageflow/typo/020; type=int; label=Time between slides: Time between slides in ms (default: 1500)
 	slideshowSpeed = 
 
 	# cat=plugin.tx_jfimageflow/typo/030; type=boolean; label=Captions: Toggle captions (default: true)
@@ -93,8 +93,11 @@ plugin.tx_jfimageflow_pi1 {
 	# cat=plugin.tx_jfimageflow/typo/050; type=boolean; label=Automatic slideshow: Toggle automatic slideshow play on startup (default: false)
 	slideshowAutoplay = 
 
-	# cat=plugin.tx_jfimageflow/typo/020; type=string; label=Aspect ratio: Aspect ratio of the ImageFlow container (width divided by height) (default: 1.964)
+	# cat=plugin.tx_jfimageflow/typo/060; type=string; label=Aspect ratio: Aspect ratio of the ImageFlow container (width divided by height) (default: 1.964)
 	aspectRatio = 
+
+	# cat=plugin.tx_jfimageflow/typo/070; type=string; label=Captions Toggle: Show the caption
+	captionsToggle = 
 
 
 
